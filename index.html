@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript ideas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            perspective: 1000px;
+        }
+        #animateBox {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            border-radius: 50%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spin 5s infinite linear;
+        }
+        #animateBox::before, #animateBox::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(52, 152, 219, 0.5);
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            transform: translateZ(-50px);
+        }
+        #animateBox::after {
+            transform: translateZ(50px);
+        }
+        @keyframes spin {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="animateBox"></div>
+</body>
+</html>
